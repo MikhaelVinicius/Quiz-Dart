@@ -2,30 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Main App'),
-        ),
-        body: Center(
-          child: TextButton(
-            onPressed: () {
-              runApp(PerguntaApp());
-            },
-            child: Text('Iniciar PerguntaApp'),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class PerguntaApp extends StatelessWidget {
   @override
@@ -77,11 +53,12 @@ class PerguntaWidget extends StatefulWidget {
 
 class _PerguntaWidgetState extends State<PerguntaWidget> {
   final List<Pergunta> perguntas = [
-    Pergunta(
-      texto: 'Qual o sobrenome da Saori?',
-      respostas: ['Kido', 'Croft', 'Soel', 'Luthay'],
-      respostaCorreta: 'Kido',
+     Pergunta(
+      texto: 'Quem é essa mulher?',
+      respostas: ['Saori Kido', 'Lara Croft', 'Beatriz Guerra', 'Mikhael'],
+      respostaCorreta: 'Saori Kido',
       peso: 2,
+      imagemPergunta: 'https://pbs.twimg.com/media/FqEuZD8WwBwWAmy.jpg',
     ),
     Pergunta(
       texto: 'Qual a capital da França?',
@@ -112,11 +89,39 @@ class _PerguntaWidgetState extends State<PerguntaWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+
+Container(
+  width: 210,
+  height: 210,
+  margin: EdgeInsets.all(10),
+  decoration: BoxDecoration(
+    
+     image: DecorationImage( image: NetworkImage(perguntas[_perguntaAtual].imagemPergunta.toString())),
+    border: Border.all(
+      color: const Color.fromARGB(255, 0, 0, 0), 
+      width: 2.0
+         ),
+         
+    borderRadius: BorderRadius.circular(30.0),
+  
+  ),
+)
+ ,
+
+
+
           Text(
             perguntas[_perguntaAtual].texto,
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
+
+      
+
+
+
+
+
           SizedBox(height: 20),
           GridView.count(
             crossAxisCount: 2,
