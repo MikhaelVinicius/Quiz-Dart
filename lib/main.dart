@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'menu.dart';
 
+//Rode a aplicação pelo Debug aqui
 void main() {
   runApp(const MyApp());
 }
 
-//Aqui é a classe que roda o aplicativo na função main, todos os componetes são chamados aqui
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
- 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
-      home: const Menu(title: 'New Mfx Quiz'),
+      home: const Menu(title: 'Quiz Programação Mobile'),
     );
   }
 }
-

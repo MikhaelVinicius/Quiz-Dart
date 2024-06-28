@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+
+//Classe score incompleta, todas as implementações relacionadas a pontuação deve ser feita aqui.
+
+
+
+
 class Score extends StatelessWidget {
   final int score;
 
