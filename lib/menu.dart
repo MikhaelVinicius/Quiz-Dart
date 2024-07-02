@@ -18,18 +18,21 @@ class _MenuState extends State<Menu> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 196, 43, 223),
+
+
+
         title: RichText(
           text: TextSpan(
-            text: 'Quiz',
+            text: '</>',
             style: TextStyle(
-                fontSize: 22.0,
+                fontSize: 30.0,
                 color: const Color.fromRGBO(68, 138, 255, 1),
                 fontWeight: FontWeight.bold),
             children: const <TextSpan>[
-              TextSpan(text: 'Programação', style: TextStyle(color: Color.fromARGB(255, 255, 235, 59))),
+              TextSpan(text: 'Ti', style: TextStyle(color:const Color.fromRGBO(68, 138, 255, 1),fontSize: 25.0)),
               TextSpan(
-                  text: ' Mobile!',
-                  style: TextStyle(color: Color.fromARGB(255, 109, 34, 6))),
+                  text: 'Quest',
+                  style: TextStyle(color: Color.fromARGB(255, 255, 235, 59),fontSize: 25.0)),
             ],
           ),
         ),

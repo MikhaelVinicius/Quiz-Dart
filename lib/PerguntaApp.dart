@@ -222,21 +222,19 @@ final int numeroMaximoPerguntas = 10; // Defina o número máximo de perguntas
 
 void _responder(String resposta) {
   if (perguntasFeitas.length >= numeroMaximoPerguntas) {
-    // Mostrar o score e encerrar a partida
+
     _mostrarPontuacaoFinal();
     return;
   }
 
-  // Marca a pergunta atual como feita
   perguntasFeitas.add(_perguntaAtual);
 
-  // Gera um novo índice de pergunta que ainda não foi feito
   int perguntaAleatoriaIndex;
   do {
     perguntaAleatoriaIndex = Random().nextInt(perguntas.length);
   } while (perguntasFeitas.contains(perguntaAleatoriaIndex) && perguntasFeitas.length < perguntas.length);
 
-  // Atualiza o estado
+
   setState(() {
     bool acertou = perguntas[_perguntaAtual].respostaCorreta == resposta;
     if (acertou) {
