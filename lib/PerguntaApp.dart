@@ -217,8 +217,16 @@ Pergunta(
   //MÉTODO RESPONSÁVEL PARA RESPONDER, ESTÁ INCOMPLETA E DEVE SER APRIMORADA ADICIONANDO OS ATRIBUTOS SOBRE PONTUAÇÃO.
 int _perguntaAtual = 0;
 List<int> perguntasFeitas = [];
+int _pontuacaoTotal = 0; // Variável para armazenar a pontuação total
+final int numeroMaximoPerguntas = 10; // Defina o número máximo de perguntas
 
 void _responder(String resposta) {
+  if (perguntasFeitas.length >= numeroMaximoPerguntas) {
+    // Mostrar o score e encerrar a partida
+    _mostrarPontuacaoFinal();
+    return;
+  }
+
   // Marca a pergunta atual como feita
   perguntasFeitas.add(_perguntaAtual);
 
@@ -230,15 +238,50 @@ void _responder(String resposta) {
 
   // Atualiza o estado
   setState(() {
-    _respondeuCorretamente = perguntas[_perguntaAtual].respostaCorreta == resposta;
+    bool acertou = perguntas[_perguntaAtual].respostaCorreta == resposta;
+    if (acertou) {
+      _pontuacaoTotal += perguntas[_perguntaAtual].peso;
+    }
     _perguntaAtual = perguntaAleatoriaIndex;
   });
 
-  // Reinicia a lista de perguntas feitas se todas as perguntas foram feitas
+
   if (perguntasFeitas.length >= perguntas.length) {
     perguntasFeitas.clear();
   }
 }
+
+
+void _mostrarPontuacaoFinal() {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Fim da Partida'),
+        content: Text('Sua pontuação total é $_pontuacaoTotal.'),
+        actions: <Widget>[
+          TextButton(
+            child: Text('OK'),
+            onPressed: () {
+              Navigator.of(context).pop();
+              _reiniciarJogo();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
+// Função para reiniciar o jogo
+void _reiniciarJogo() {
+  setState(() {
+    _perguntaAtual = 0;
+    perguntasFeitas.clear();
+    _pontuacaoTotal = 0;
+  });
+}
+
 
 
 
