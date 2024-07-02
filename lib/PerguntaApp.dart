@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:saori_kido_quiz_bayo/pergunta.dart';
 
@@ -89,23 +91,155 @@ class _PerguntaComponenteState extends State<PerguntaComponente> {
       respostas: ['Terra', 'Marte', 'Júpiter', 'Saturno'],
       respostaCorreta: 'Júpiter',
       peso: 4,
-    ),
+    ),Pergunta(
+  texto: 'Quem escreveu "Dom Casmurro"?',
+  respostas: ['Machado de Assis', 'José de Alencar', 'Eça de Queirós', 'Graciliano Ramos'],
+  respostaCorreta: 'Machado de Assis',
+  peso: 2,
+),
+Pergunta(
+  texto: 'Qual é o elemento químico com o símbolo "O"?',
+  respostas: ['Ouro', 'Oxigênio', 'Osmium', 'Ósmio'],
+  respostaCorreta: 'Oxigênio',
+  peso: 3,
+),
+Pergunta(
+  texto: 'Quantos estados tem o Brasil?',
+  respostas: ['24', '25', '26', '27'],
+  respostaCorreta: '26',
+  peso: 4,
+),
+Pergunta(
+  texto: 'Quem pintou a Mona Lisa?',
+  respostas: ['Michelangelo', 'Leonardo da Vinci', 'Raphael', 'Donatello'],
+  respostaCorreta: 'Leonardo da Vinci',
+  peso: 2,
+),
+Pergunta(
+  texto: 'Qual é a capital do Japão?',
+  respostas: ['Pequim', 'Seul', 'Tóquio', 'Bangkok'],
+  respostaCorreta: 'Tóquio',
+  peso: 3,
+),
+Pergunta(
+  texto: 'Qual é a fórmula química da água?',
+  respostas: ['CO2', 'H2O', 'O2', 'NaCl'],
+  respostaCorreta: 'H2O',
+  peso: 2,
+),
+Pergunta(
+  texto: 'Em que ano o homem pisou na Lua pela primeira vez?',
+  respostas: ['1965', '1969', '1972', '1980'],
+  respostaCorreta: '1969',
+  peso: 4,
+),
+Pergunta(
+  texto: 'Qual é o maior oceano do mundo?',
+  respostas: ['Atlântico', 'Pacífico', 'Índico', 'Ártico'],
+  respostaCorreta: 'Pacífico',
+  peso: 3,
+),
+Pergunta(
+  texto: 'Qual é o nome do personagem principal de "O Senhor dos Anéis"?',
+  respostas: ['Frodo', 'Gandalf', 'Aragorn', 'Legolas'],
+  respostaCorreta: 'Frodo',
+  peso: 2,
+),
+Pergunta(
+  texto: 'Qual é a velocidade da luz?',
+  respostas: ['300,000 km/s', '150,000 km/s', '400,000 km/s', '500,000 km/s'],
+  respostaCorreta: '300,000 km/s',
+  peso: 4,
+),
+Pergunta(
+  texto: 'Qual é o menor país do mundo?',
+  respostas: ['Mônaco', 'Nauru', 'Vaticano', 'Malta'],
+  respostaCorreta: 'Vaticano',
+  peso: 3,
+),
+Pergunta(
+  texto: 'Qual é o nome da galáxia em que vivemos?',
+  respostas: ['Andrômeda', 'Via Láctea', 'Triângulo', 'Sagittarius'],
+  respostaCorreta: 'Via Láctea',
+  peso: 2,
+),
+Pergunta(
+  texto: 'Qual é a moeda oficial do Reino Unido?',
+  respostas: ['Euro', 'Dólar', 'Libra esterlina', 'Franco suíço'],
+  respostaCorreta: 'Libra esterlina',
+  peso: 3,
+),
+Pergunta(
+  texto: 'Quem descobriu o Brasil?',
+  respostas: ['Cristóvão Colombo', 'Pedro Álvares Cabral', 'Vasco da Gama', 'Ferdinando Magalhães'],
+  respostaCorreta: 'Pedro Álvares Cabral',
+  peso: 2,
+),
+Pergunta(
+  texto: 'Qual é a montanha mais alta do mundo?',
+  respostas: ['K2', 'Kangchenjunga', 'Lhotse', 'Everest'],
+  respostaCorreta: 'Everest',
+  peso: 4,
+),
+
   ];
+
+ bool _respondeuCorretamente = false;
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //AQUI É ONDE QUAL PERGUNTA É SELECIONADO, PARA FINS DE TESTES _perguntaAtual É O INDEX DA LISTA DE PERGUNTA, NO CASO A PRIMEIR PERGUNTA.
   //CRIE O MÉTODO RESPONSÁVEL PARA A SEQUENCIA DE PERGUNTAS DURANTE AS PARTIDAS AQUI E SUBSTITUA NO MAP DE 'Widget build' PARA A SEQUENCIA DE PERGUNTAS.
-  int _perguntaAtual = 0;
+
 
   //VARIÁVEL PARA FINS DE CONFIRMAÇÃO DE RESPOSTA CORRETA
-  bool _respondeuCorretamente = false;
+ 
 
   //MÉTODO RESPONSÁVEL PARA RESPONDER, ESTÁ INCOMPLETA E DEVE SER APRIMORADA ADICIONANDO OS ATRIBUTOS SOBRE PONTUAÇÃO.
-  void _responder(String resposta) {
-    setState(() {
-      _respondeuCorretamente =
-          perguntas[_perguntaAtual].respostaCorreta == resposta;
-    });
+int _perguntaAtual = 0;
+List<int> perguntasFeitas = [];
+
+void _responder(String resposta) {
+  // Marca a pergunta atual como feita
+  perguntasFeitas.add(_perguntaAtual);
+
+  // Gera um novo índice de pergunta que ainda não foi feito
+  int perguntaAleatoriaIndex;
+  do {
+    perguntaAleatoriaIndex = Random().nextInt(perguntas.length);
+  } while (perguntasFeitas.contains(perguntaAleatoriaIndex) && perguntasFeitas.length < perguntas.length);
+
+  // Atualiza o estado
+  setState(() {
+    _respondeuCorretamente = perguntas[_perguntaAtual].respostaCorreta == resposta;
+    _perguntaAtual = perguntaAleatoriaIndex;
+  });
+
+  // Reinicia a lista de perguntas feitas se todas as perguntas foram feitas
+  if (perguntasFeitas.length >= perguntas.length) {
+    perguntasFeitas.clear();
   }
+}
+
 
 
 
@@ -147,7 +281,7 @@ class _PerguntaComponenteState extends State<PerguntaComponente> {
             padding: EdgeInsets.all(20),
             children: perguntas[_perguntaAtual].respostas.map((resposta) { //O MÉTODO PARA A APLICAÇÃO DAS PERGUNTAS DENTRO DA LISTA DEVE SER ADICIONADO AQUI
               return ElevatedButton(
-                onPressed: () => _responder(resposta),
+                onPressed: () => _responder(resposta), 
                 child: Text(resposta),
               );
             }).toList(),

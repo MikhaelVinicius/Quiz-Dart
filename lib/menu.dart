@@ -23,10 +23,10 @@ class _MenuState extends State<Menu> {
             text: 'Quiz',
             style: TextStyle(
                 fontSize: 22.0,
-                color: Colors.blueAccent,
+                color: const Color.fromRGBO(68, 138, 255, 1),
                 fontWeight: FontWeight.bold),
             children: const <TextSpan>[
-              TextSpan(text: 'Programação', style: TextStyle(color: Colors.yellow)),
+              TextSpan(text: 'Programação', style: TextStyle(color: Color.fromARGB(255, 255, 235, 59))),
               TextSpan(
                   text: ' Mobile!',
                   style: TextStyle(color: Color.fromARGB(255, 109, 34, 6))),
