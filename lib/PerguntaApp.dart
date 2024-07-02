@@ -26,20 +26,20 @@ class PerguntaApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 196, 43, 223),
           title: RichText(
-            text: TextSpan(
-              text: 'Quiz',
-              style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.blueAccent,
-                  fontWeight: FontWeight.bold),
-              children: const <TextSpan>[
-                TextSpan(text: 'Programação', style: TextStyle(color: Colors.yellow)),
-                TextSpan(
-                    text: ' Web!',
-                    style: TextStyle(color: Color.fromARGB(255, 109, 34, 6))),
-              ],
-            ),
+          text: TextSpan(
+            text: '</>',
+            style: TextStyle(
+                fontSize: 30.0,
+                color: const Color.fromRGBO(68, 138, 255, 1),
+                fontWeight: FontWeight.bold),
+            children: const <TextSpan>[
+              TextSpan(text: 'Ti', style: TextStyle(color:const Color.fromRGBO(68, 138, 255, 1),fontSize: 25.0)),
+              TextSpan(
+                  text: 'Quest',
+                  style: TextStyle(color: Color.fromARGB(255, 255, 235, 59),fontSize: 25.0)),
+            ],
           ),
+        ),
         ),
         body: PerguntaComponente(),
       ),
@@ -74,112 +74,137 @@ class _PerguntaComponenteState extends State<PerguntaComponente> {
   //LISTA DE PERGUNTAS, ADICIONE MAIS PERGUNTAS AQUI
   final List<Pergunta> perguntas = [
     Pergunta(
-      texto: 'Quem é essa mulher?',
-      respostas: ['Saori Kido', 'Lara Croft', 'Beatriz Guerra', 'Mikhael'],
-      respostaCorreta: 'Saori Kido',
+      texto: 'Sobre a linguagem de programação Python, ela é...?',
+      respostas: ['Orientado a objetos', 'Baixo nível', 'Funcional', 'Obsoleta'],
+      respostaCorreta: 'Orientada a objetos',
       peso: 2,
-      imagemPergunta: 'https://pbs.twimg.com/media/FqEuZD8WwBwWAmy.jpg',
+      imagemPergunta: 'https://brandslogos.com/wp-content/uploads/images/large/python-logo.png',
     ),
     Pergunta(
       texto: 'Qual a capital da França?',
       respostas: ['Berlim', 'Madrid', 'Paris', 'Lisboa'],
       respostaCorreta: 'Paris',
       peso: 3,
+      imagemPergunta: 'http://pluspng.com/img-png/android-png-android-logo-png-1024.png'
     ),
     Pergunta(
       texto: 'Qual é o maior planeta do sistema solar?',
       respostas: ['Terra', 'Marte', 'Júpiter', 'Saturno'],
       respostaCorreta: 'Júpiter',
       peso: 4,
+      imagemPergunta: 'http://pluspng.com/img-png/android-png-android-logo-png-1024.png'
     ),Pergunta(
   texto: 'Quem escreveu "Dom Casmurro"?',
   respostas: ['Machado de Assis', 'José de Alencar', 'Eça de Queirós', 'Graciliano Ramos'],
   respostaCorreta: 'Machado de Assis',
   peso: 2,
+  imagemPergunta: 'http://pluspng.com/img-png/android-png-android-logo-png-1024.png'
 ),
 Pergunta(
   texto: 'Qual é o elemento químico com o símbolo "O"?',
   respostas: ['Ouro', 'Oxigênio', 'Osmium', 'Ósmio'],
   respostaCorreta: 'Oxigênio',
   peso: 3,
+  imagemPergunta: 'https://1000logos.net/wp-content/uploads/2020/09/Umbrella-Corporation-Logo-1536x960.png'
 ),
 Pergunta(
   texto: 'Quantos estados tem o Brasil?',
   respostas: ['24', '25', '26', '27'],
   respostaCorreta: '26',
   peso: 4,
+    imagemPergunta: 'https://1000logos.net/wp-content/uploads/2020/09/Umbrella-Corporation-Logo-1536x960.png'
 ),
 Pergunta(
   texto: 'Quem pintou a Mona Lisa?',
   respostas: ['Michelangelo', 'Leonardo da Vinci', 'Raphael', 'Donatello'],
   respostaCorreta: 'Leonardo da Vinci',
   peso: 2,
+    imagemPergunta: 'https://1000logos.net/wp-content/uploads/2020/09/Umbrella-Corporation-Logo-1536x960.png'
 ),
 Pergunta(
   texto: 'Qual é a capital do Japão?',
   respostas: ['Pequim', 'Seul', 'Tóquio', 'Bangkok'],
   respostaCorreta: 'Tóquio',
   peso: 3,
+    imagemPergunta: 'https://1000logos.net/wp-content/uploads/2020/09/Umbrella-Corporation-Logo-1536x960.png'
 ),
 Pergunta(
   texto: 'Qual é a fórmula química da água?',
   respostas: ['CO2', 'H2O', 'O2', 'NaCl'],
   respostaCorreta: 'H2O',
   peso: 2,
+    imagemPergunta: 'https://1000logos.net/wp-content/uploads/2020/09/Umbrella-Corporation-Logo-1536x960.png'
 ),
 Pergunta(
-  texto: 'Em que ano o homem pisou na Lua pela primeira vez?',
-  respostas: ['1965', '1969', '1972', '1980'],
+  texto: 'Que cidade é essa?',
+  respostas: ['Arcoverde a melhor cidade do mundo', 'Recife', 'Garanhuns', 'Hiroshima'],
   respostaCorreta: '1969',
   peso: 4,
+    imagemPergunta: 'https://jornaldosertaope.com.br/wp-content/uploads/2020/09/Vista-panoramica-da-cidade-de-Arcoverde-Foto-Divulgacao-scaled.jpg'
 ),
 Pergunta(
   texto: 'Qual é o maior oceano do mundo?',
   respostas: ['Atlântico', 'Pacífico', 'Índico', 'Ártico'],
   respostaCorreta: 'Pacífico',
   peso: 3,
+  
+    imagemPergunta: 'https://media.metrolatam.com/2019/11/18/lula-7bdd95d7832e5391412b7fd2f4f5ceca-1200x800.jpg'
 ),
 Pergunta(
   texto: 'Qual é o nome do personagem principal de "O Senhor dos Anéis"?',
   respostas: ['Frodo', 'Gandalf', 'Aragorn', 'Legolas'],
   respostaCorreta: 'Frodo',
   peso: 2,
+  
+    imagemPergunta: 'https://media.metrolatam.com/2019/11/18/lula-7bdd95d7832e5391412b7fd2f4f5ceca-1200x800.jpg'
 ),
 Pergunta(
   texto: 'Qual é a velocidade da luz?',
   respostas: ['300,000 km/s', '150,000 km/s', '400,000 km/s', '500,000 km/s'],
   respostaCorreta: '300,000 km/s',
   peso: 4,
+  
+    imagemPergunta: 'https://media.metrolatam.com/2019/11/18/lula-7bdd95d7832e5391412b7fd2f4f5ceca-1200x800.jpg'
 ),
 Pergunta(
   texto: 'Qual é o menor país do mundo?',
   respostas: ['Mônaco', 'Nauru', 'Vaticano', 'Malta'],
   respostaCorreta: 'Vaticano',
   peso: 3,
+  
+    imagemPergunta: 'https://media.metrolatam.com/2019/11/18/lula-7bdd95d7832e5391412b7fd2f4f5ceca-1200x800.jpg'
 ),
 Pergunta(
   texto: 'Qual é o nome da galáxia em que vivemos?',
   respostas: ['Andrômeda', 'Via Láctea', 'Triângulo', 'Sagittarius'],
   respostaCorreta: 'Via Láctea',
   peso: 2,
+  
+    imagemPergunta: 'https://media.metrolatam.com/2019/11/18/lula-7bdd95d7832e5391412b7fd2f4f5ceca-1200x800.jpg'
 ),
 Pergunta(
   texto: 'Qual é a moeda oficial do Reino Unido?',
   respostas: ['Euro', 'Dólar', 'Libra esterlina', 'Franco suíço'],
   respostaCorreta: 'Libra esterlina',
   peso: 3,
+  
+    imagemPergunta: 'https://media.metrolatam.com/2019/11/18/lula-7bdd95d7832e5391412b7fd2f4f5ceca-1200x800.jpg'
 ),
 Pergunta(
   texto: 'Quem descobriu o Brasil?',
   respostas: ['Cristóvão Colombo', 'Pedro Álvares Cabral', 'Vasco da Gama', 'Ferdinando Magalhães'],
   respostaCorreta: 'Pedro Álvares Cabral',
   peso: 2,
+  
+    imagemPergunta: 'https://media.metrolatam.com/2019/11/18/lula-7bdd95d7832e5391412b7fd2f4f5ceca-1200x800.jpg'
 ),
 Pergunta(
   texto: 'Qual é a montanha mais alta do mundo?',
   respostas: ['K2', 'Kangchenjunga', 'Lhotse', 'Everest'],
   respostaCorreta: 'Everest',
   peso: 4,
+  
+    imagemPergunta: 'https://media.metrolatam.com/2019/11/18/lula-7bdd95d7832e5391412b7fd2f4f5ceca-1200x800.jpg'
 ),
 
   ];
@@ -327,17 +352,7 @@ void _reiniciarJogo() {
               );
             }).toList(),
           ),
-          SizedBox(height: 20),
-          Text( // Esse linha de código deve ser aprimorada para a implementação do Score
-            _respondeuCorretamente
-                ? 'Resposta correta!'
-                : 'Resposta incorreta!',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: _respondeuCorretamente ? Colors.green : Colors.red,
-            ),
-          ),
+        
         ],
       ),
     );
