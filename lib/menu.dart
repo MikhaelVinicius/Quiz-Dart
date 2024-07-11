@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:saori_kido_quiz_bayo/PerguntaApp.dart';
-import 'package:saori_kido_quiz_bayo/score.dart';
-import 'package:saori_kido_quiz_bayo/pergunta.dart';
+import 'package:TI.quest/PerguntaApp.dart';
+import 'package:TI.quest/score.dart';
+import 'package:TI.quest/pergunta.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key, required this.title});

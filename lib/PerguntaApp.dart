@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:saori_kido_quiz_bayo/pergunta.dart';
+import 'package:TI.quest/pergunta.dart';
 
  
 /* 
