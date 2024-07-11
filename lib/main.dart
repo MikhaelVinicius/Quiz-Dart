@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
+import "package:sqflite/sqflite.dart";
 import 'menu.dart';
 
 //Rode a aplicação pelo Debug aqui
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Menu(title: 'Quiz Programação Mobile'),
+      home: const Menu(title: "Quiz Programação Mobile"),
     );
   }
 }

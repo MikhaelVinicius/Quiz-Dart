@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saori_kido_quiz_bayo/PerguntaApp.dart';
-import 'package:saori_kido_quiz_bayo/Score.dart';
+import 'package:saori_kido_quiz_bayo/score.dart';
 import 'package:saori_kido_quiz_bayo/pergunta.dart';
 
 class Menu extends StatefulWidget {
@@ -40,16 +40,16 @@ class _MenuState extends State<Menu> {
       body: Column(
         children: <Widget>[
           Container(
-            child: Text("Bem-vindo!"),
+            child: Text("Seja Bem-vind@!"),
             alignment: Alignment.topCenter,
             margin: EdgeInsets.all(25.0),
           ),
-          Score(15),
+          Score(20),
           TextButton(
               onPressed: () {
                 runApp(PerguntaApp());
               },
-              child: Text("Iniciar jornada",
+              child: Text("Inicie sua jornada!",
                   style: TextStyle(color: Colors.yellow, fontSize: 25)),
               style: TextButton.styleFrom(
                   backgroundColor: Color.fromARGB(255, 196, 43, 223))),
@@ -58,3 +58,4 @@ class _MenuState extends State<Menu> {
     );
   }
 }
+
