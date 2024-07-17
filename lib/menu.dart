@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:TI.quest/PerguntaApp.dart';
 import 'package:TI.quest/score.dart';
 import 'package:TI.quest/pergunta.dart';
-
+/*
 class Menu extends StatefulWidget {
   const Menu({super.key, required this.title});
 
@@ -59,3 +59,4 @@ class _MenuState extends State<Menu> {
   }
 }
 
+*/
