@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:TI.quest/Score.dart';
+import 'package:TI.quest/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:TI.quest/pergunta.dart';
 
@@ -331,6 +333,7 @@ void _mostrarPontuacaoFinal() {
       return AlertDialog(
         title: Text('Fim da Partida'),
         content: Text('Sua pontuação total é $_pontuacaoTotal.'),
+        
         actions: <Widget>[
           TextButton(
             child: Text('OK'),
@@ -348,13 +351,21 @@ void _mostrarPontuacaoFinal() {
 // Função para reiniciar o jogo
 void _reiniciarJogo() {
   setState(() {
-    _perguntaAtual = 0;
+    scoreDoUsuario.recorde(_pontuacaoTotal);
+
+
+
     perguntasFeitas.clear();
     _pontuacaoTotal = 0;
+    
   });
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Menu(title: '',)),
+    );
+
 }
-
-
 
 
 

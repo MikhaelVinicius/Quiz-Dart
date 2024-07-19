@@ -1,11 +1,13 @@
+import "package:TI.quest/PerguntaApp.dart";
 import "package:TI.quest/db.dart";
 import "package:flutter/material.dart";
 import "package:sqflite/sqflite.dart";
 import 'menu.dart';
 
-/*Rode a aplicação pelo Debug aqui
+
 void main() {
   runApp(const MyApp());
+  //runApp(PerguntaApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,12 +20,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-*/
 
 
+/*
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
 
 void main() async {
   await Hive.initFlutter();
@@ -100,3 +103,4 @@ class _TestDatabaseScreenState extends State<TestDatabaseScreen> {
     );
   }
 }
+*/
