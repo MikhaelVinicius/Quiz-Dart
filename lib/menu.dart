@@ -65,18 +65,34 @@ class _MenuState extends State<Menu> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
              Container(
-            child: Text("Seja Bem-vind0!"),
-            alignment: Alignment.topCenter,
-            margin: EdgeInsets.all(25.0),
-          ),
-          Text(
+            child:    Text(
             'Sua Pontuação: ${scoreDoUsuario.pontos}',
-            style: TextStyle(fontSize: 20.0),
+            style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold), 
+            
+           
           ),
-           ElevatedButton(
-              onPressed: PerguntaApp,
-              child: Text('Iniciar Jogo'),
-            ),
+            
+            alignment: Alignment.topCenter,
+            margin: EdgeInsets.all(85.0),
+          
+          ),
+       
+         ElevatedButton(
+  onPressed: PerguntaApp,
+  child: Text(
+    'Iniciar Jogo',
+    style: TextStyle(fontSize: 18), // Aumenta o tamanho do texto
+  ),
+  style: ElevatedButton.styleFrom(
+    foregroundColor: Colors.white, backgroundColor: Color.fromARGB(255, 196, 43, 223), // Cor do texto
+    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15), // Padding
+    minimumSize: Size(200, 60), // Tamanho mínimo do botão
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12), // Bordas arredondadas
+    ),
+  ),
+),
+
             DropdownButton<String>(
               value: _dificuldadeSelecionada,
               onChanged: (String? newValue) {
