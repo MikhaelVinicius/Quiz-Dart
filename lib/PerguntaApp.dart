@@ -148,11 +148,15 @@ class _PerguntaComponenteState extends State<PerguntaComponente> {
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
-                  Text(
-                    perguntasFiltradas[_perguntaAtual].texto,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
+                 Container(
+  margin: EdgeInsets.symmetric(horizontal: 20.0), // Margem lateral de 20 pixels
+  child: Text(
+    perguntasFiltradas[_perguntaAtual].texto,
+    textAlign: TextAlign.center,
+    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  ),
+)
+,
                   SizedBox(height: 20),
                   GridView.count(
                     crossAxisCount: 2,
