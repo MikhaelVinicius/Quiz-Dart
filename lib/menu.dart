@@ -3,16 +3,36 @@ import 'package:TI.quest/PerguntaApp.dart';
 import 'package:TI.quest/Score.dart';
 import 'package:TI.quest/pergunta.dart';
 
-class Menu extends StatefulWidget {
-  const Menu({super.key, required this.title});
 
+
+
+
+
+
+
+
+
+class Menu extends StatefulWidget {
   final String title;
 
+  Menu({required this.title});
+
   @override
-  State<Menu> createState() => _MenuState();
+  _MenuState createState() => _MenuState();
 }
 
 class _MenuState extends State<Menu> {
+  String _dificuldadeSelecionada = 'aleatórias';
+
+  void PerguntaApp() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PerguntaComponente(dificuldade: _dificuldadeSelecionada),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,31 +60,46 @@ class _MenuState extends State<Menu> {
           ),
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          Container(
-            child: Text("Seja Bem-vind@!"),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+             Container(
+            child: Text("Seja Bem-vind0!"),
             alignment: Alignment.topCenter,
             margin: EdgeInsets.all(25.0),
           ),
           Text(
-            'Score: ${scoreDoUsuario.pontos}',
+            'Sua Pontuação: ${scoreDoUsuario.pontos}',
             style: TextStyle(fontSize: 20.0),
           ),
-     TextButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => PerguntaApp()),
-    );
-  },
-  child: Text("Inicie sua jornada!",
-      style: TextStyle(color: Colors.yellow, fontSize: 25)),
-  style: TextButton.styleFrom(
-      backgroundColor: Color.fromARGB(255, 196, 43, 223))),
-
-        ],
+           ElevatedButton(
+              onPressed: PerguntaApp,
+              child: Text('Iniciar Jogo'),
+            ),
+            DropdownButton<String>(
+              value: _dificuldadeSelecionada,
+              onChanged: (String? newValue) {
+                setState(() {
+                  _dificuldadeSelecionada = newValue!;
+                });
+              },
+              items: <String>['aleatórias', 'fácil', 'médio', 'difícil', 'muito difícil']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+           
+          ],
+        ),
       ),
     );
   }
 }
+
+
+
+
