@@ -66,7 +66,7 @@ class _MenuState extends State<Menu> {
           children: <Widget>[
              Container(
             child:    Text(
-            'Sua Pontuação: ${scoreDoUsuario.pontos}',
+            'Recorde: ${scoreDoUsuario.pontos}',
             style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold), 
             
            
